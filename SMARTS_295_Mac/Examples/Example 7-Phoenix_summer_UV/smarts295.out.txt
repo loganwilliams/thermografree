@@ -1,0 +1,331 @@
+
+******************   SMARTS, version 2.9.5   *******************
+
+ Simple Model of the Atmospheric Radiative Transfer of Sunshine
+     Chris A. Gueymard, Solar Consulting Services
+                    December 2005
+
+    This model is documented in FSEC Report PF-270-95
+ and in a Solar Energy paper, vol. 71, No.5, 325-346 (2001)
+
+ NOTE: These references describe v. 2.8 or earlier!!!
+ See the User's Manual for details on the considerable 
+ changes that followed...
+
+****************************************************************
+
+   Reference for this run: Example_7:Phoenix_summer_UV                                     
+
+----------------------------------------------------------------
+
+* ATMOSPHERE : MLS         AEROSOL TYPE: SRA_CONTL                                                       
+
+* INPUTS:
+     Pressure (mb) =  974.000   Ground Altitude (km) =   0.3390
+     Height above ground (km) =   0.0000
+     Relative Humidity (%) = 72.736   Precipitable Water (cm) =  2.4928
+     Ozone (atm-cm) = 0.3311 or 331.1 Dobson Units
+   AEROSOLS:  Optical Depth at 500 nm = 0.0850      Optical depth at 550 nm = 0.0757
+       Angstrom's Beta = 0.0365       Schuepp's B = 0.0369
+     Meteorological Range (km) =  125.9   Visibility (km) =   96.4
+     Alpha1 = 0.9810  Alpha2 = 1.2200   Mean Angstrom's Alpha = 1.1005
+     Season = SPRING/SUMMER           
+
+* TEMPERATURES:
+     Instantaneous at site's altitude = 292.6 K
+     Daily average (reference) at site's altitude = 292.6 K
+     Stratospheric Ozone and NO2 (effective) = 231.8 K
+
+
+The following spectral variables will be output to file: smarts295.ext.txt       
+
+ * Direct_normal_irradiance
+ * Difuse_horizn_irradiance
+ * RayleighScat_trnsmittnce
+ * Ozone_totl_transmittance
+ * Trace_gas__transmittance
+ * WaterVapor_transmittance
+ * Mixed_gas__transmittance
+ * Aerosol_tot_transmittnce
+ * Global_horizn_irradiance
+ * Global_tilted_irradiance
+
+
+      Spectral ZONAL albedo data: LIGHT_SANDY_SOIL        
+      with a reflection process: NON_LAMBERTIAN          
+
+
+* GEOMETRY (half-angles) OF THE SIMULATED RADIOMETER (deg.):
+   Slope =  0.00      Aperture =  2.90   Limit =  0.00
+
+** WARNING #11*********
+\ The radiometer's Slope and Limit angles are not provided.
+\ Circumsolar calculations will therefore be performed for
+\ an average geometry corresponding to the Aperture angle.
+
+
+
+      Spectral LOCAL albedo data: LIGHT_SANDY_SOIL        
+      with a reflection process: NON_LAMBERTIAN          
+
+
+
+====================================================================================================
+====================================================================================================
+
+* SOLAR POSITION (deg.):
+    Zenith Angle (apparent) = 12.043  Azimuth (from North) =  179.99
+
+      RELATIVE OPTICAL MASSES:
+  - Rayleigh =  1.022
+  - Water Vapor =  1.022
+  - Ozone =  1.022
+  - NO2 =  1.022
+  - Aerosols =  1.022
+
+  Results below are for this specific day:
+ Year = 2000   Month =  7  Day = 15   Hour (LST) = 12.567   Day of Year = 197
+   In Universal Time:
+   Day (UT) = 15   Hour (UT) = 19.567
+   Julian Day =  2451741.250  Declination =  21.387 deg.  Radius vector = 1.01642   Equation of Time (min) =  -5.981
+   Local Apparent Time (or Solar Time):  12.000
+
+
+
+ CO2 Mixing Ratio (ppmv):  370.0
+
+
+
+ Total column abundances (atm-cm) for all gases except H2O, and for normal/standard conditions:
+
+    BrO       CH2O        CH4      ClNO3         CO        CO2       HNO2       HNO3        NH3
+
+0.2500E-05 0.3000E-03 0.1220E+01 0.1200E-03 0.8296E-01 0.2855E+03 0.1000E-03 0.3822E-03 0.1558E-03
+
+
+     NO        NO2        NO3         N2        N2O         O2         O3         O4        SO2
+
+0.3138E-03 0.2177E-03 0.5000E-04 0.3448E+06 0.2290E+00 0.1613E+06 0.3311E+00 0.1613E+06 0.9910E-04
+
+
+
+ Corrected total column abundances for all gases (atm-cm)
+ with these realistic conditions: PRISTINE ATMOSPHERE     
+
+    BrO       CH2O        CH4      ClNO3         CO        CO2       HNO2       HNO3        NH3
+
+0.2500E-05 0.0000E+00 0.1220E+01 0.1200E-03 0.7296E-01 0.2855E+03 0.1000E-05 0.1582E-02 0.1558E-03
+
+
+     NO        NO2        NO3         N2        N2O         O2         O3         O4        SO2
+
+0.3138E-03 0.2177E-03 0.1000E-05 0.3448E+06 0.2290E+00 0.1613E+06 0.3304E+00 0.1613E+06 0.9910E-04
+
+
+
+
+* ANGLES (deg.) FOR TILTED SURFACE CALCULATIONS: 
+   Surface Tilt =  90.000   Surface Azimuth (from North) = 180.000
+   Incidence Angle =  77.957
+
+  Diffuse irradiance ratios (tilted plane/horizontal):
+      0.5000  (isotropic approximate conversion--for reference)
+      0.5230  (anisotropic conversion model--used here)
+
+
+
+*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+** SPECTRUM:
+   Total (0-100 µm) Extraterrestrial Irradiance used here = 1323.20 W/m2
+  (i.e., 0.9680 times the selected solar constant, 1367.00 W/m2, due to the actual Sun-Earth distance.)
+   Source for selected solar spectrum: Gueymard_2002_unpublished                                       
+
+
+Wavelength Range =  280.0 to 4000.0 nm;  Number of Wavelengths =  2002
+
+*** BROADBAND IRRADIANCES (W/m2):
+
+* DIRECT BEAM AT NORMAL INCIDENCE:
+  Extraterrestrial = 1304.75   Terrestrial =  930.42   Atmospheric Transmittance = 0.7131
+
+* FOR THE HORIZONTAL PLANE:
+  Direct Beam =  909.95   Diffuse = 104.77   Global = 1014.72   Clearness index, KT = 0.7669
+  Diffuse irradiance origination details:
+   Sky diffuse =  89.62   Back-scattered diffuse =  15.15
+
+* FOR THE TILTED PLANE: 
+  Direct Beam =  194.13   Sky Diffuse = 191.80   Ground Reflected = 138.71   Global =  385.93
+
+* EXPERIMENTAL (WITH CIRCUMSOLAR CORRECTION):
+  Direct Beam, Normal Incidence =  932.19   Diffuse Horizontal = 103.04   Global Horizontal = 1014.72
+
+
+
+
+*** ILLUMINANCES (klux) obtained with the Vlambda curve from CIE 1988:
+ E.T. = 129.56  BEAM NORMAL = 104.88  DIFFUSE HORIZONTAL =   14.19  GLOBAL HORIZONTAL =  116.75  GLOBAL TILT =   41.05
+
+*** PHOTOSYNTHETIC IRRADIANCE (W/m2) for 400-700 nm:
+ BEAM NORMAL = 406.70  DIFFUSE HORIZONTAL =  63.76  GLOBAL HORIZONTAL = 461.50  GLOBAL TILT = 162.91
+
+*** PHOTOSYNTHETIC PHOTON FLUX DENSITY (µmol m-2 s-1) for 400-700 nm:
+ BEAM NORMAL = 1872.8  DIFFUSE HORIZONTAL =  275.2  GLOBAL HORIZONTAL = 2106.8  GLOBAL TILT =  748.0
+
+      ILLUMINANCES WITH CIRCUMSOLAR CORRECTION (klux):
+       BEAM NORMAL = 105.11   DIFFUSE =   13.95
+
+*** LUMINOUS EFFICACY (lm/W):
+ E.T. =  97.91   BEAM = 112.719   DIFFUSE = 135.401   GLOBAL = 115.061   GLOBAL TILT = 106.368
+
+      LUMINOUS EFFICACY WITH CIRCUMSOLAR CORRECTION (lm/W):
+       BEAM = 112.759   DIFFUSE = 135.424
+
+
+
+
+*** UV IRRADIANCES (W/m2):
+
+ TOTAL UV-A IRRADIANCE (315-400 nm) =  61.41104
+ TOTAL UV-B IRRADIANCE (280-315 nm) =  1.84329
+
+ TOTAL UV-A IRRADIANCE (320-400 nm) =  59.81945
+ TOTAL UV-B IRRADIANCE (280-320 nm) =  3.41151
+
+
+*** ACTION-WEIGHTED DOSE RATES (W/m2) USING SELECTED ACTION CURVES
+
+ ERYTHEMAL C.I.E. (McKinley & Diffey, 1987) = 0.2453E+00
+ ERYTHEMAL from Green et al. (1974) = 0.1664E+00
+ ERYTHEMAL from Green et al. (1975) = 0.2070E+00
+ ERYTHEMAL from Diffey (1982) modified by Bjorn (1989) = 0.3265E+00
+ DNA DAMAGE from Setlow (1974) = 0.4790E-02
+ PHOTOSYNTHESIS INHIBITION from Caldwell et al. (1986) = 0.1794E+01
+ ACGIH SAFETY SPECTRUM from Wester (1981) = 0.4888E-01
+ BIOLOGICAL ACTION from Caldwell (1971) and Green (1974) = 0.7719E-01
+ POLYCHROMATIC ACTION FOR HIGHER PLANTS from Caldwell et al. (1986) = 0.1891E+00
+ SYSTEMIC IMMUNOSUPPRESSION from deFabo et al. (1990)    = 0.3700E+00
+ DNA TO PROTEIN CROSSLINKS from Peak & Peak (1986) = 0.3739E-01
+ SKIN CARCINOGENESIS from deGruijl & VanderLeun (1994) = 0.5565E+00 (humans); 0.2032E+00 (mice)
+
+
+*** DOSE RATE IN MED/h from an ideal Robertson-Berger instrument = 0.4205E+01
+
+
+*** UV Index =   9.810
+
+
+
+====================================================================================================
+====================================================================================================
+
+* SOLAR POSITION (deg.):
+    Zenith Angle (apparent) = 19.643  Azimuth (from North) =  180.03
+
+      RELATIVE OPTICAL MASSES:
+  - Rayleigh =  1.061
+  - Water Vapor =  1.062
+  - Ozone =  1.061
+  - NO2 =  1.062
+  - Aerosols =  1.062
+
+  Results below are for this specific day:
+ Year = 2000   Month =  8  Day = 15   Hour (LST) = 12.540   Day of Year = 228
+   In Universal Time:
+   Day (UT) = 15   Hour (UT) = 19.540
+   Julian Day =  2451772.250  Declination =  13.785 deg.  Radius vector = 1.01264   Equation of Time (min) =  -4.316
+   Local Apparent Time (or Solar Time):  12.001
+
+
+
+* ANGLES (deg.) FOR TILTED SURFACE CALCULATIONS: 
+   Surface Tilt =  90.000   Surface Azimuth (from North) = 180.000
+   Incidence Angle =  70.357
+
+  Diffuse irradiance ratios (tilted plane/horizontal):
+      0.5000  (isotropic approximate conversion--for reference)
+      0.5852  (anisotropic conversion model--used here)
+
+
+
+*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+** SPECTRUM:
+   Total (0-100 µm) Extraterrestrial Irradiance used here = 1333.10 W/m2
+  (i.e., 0.9752 times the selected solar constant, 1367.00 W/m2, due to the actual Sun-Earth distance.)
+   Source for selected solar spectrum: Gueymard_2002_unpublished                                       
+
+
+Wavelength Range =  280.0 to 4000.0 nm;  Number of Wavelengths =  2002
+
+*** BROADBAND IRRADIANCES (W/m2):
+
+* DIRECT BEAM AT NORMAL INCIDENCE:
+  Extraterrestrial = 1314.50   Terrestrial =  929.63   Atmospheric Transmittance = 0.7072
+
+* FOR THE HORIZONTAL PLANE:
+  Direct Beam =  875.53   Diffuse = 104.38   Global =  979.91   Clearness index, KT = 0.7351
+  Diffuse irradiance origination details:
+   Sky diffuse =  89.43   Back-scattered diffuse =  14.95
+
+* FOR THE TILTED PLANE: 
+  Direct Beam =  312.51   Sky Diffuse = 191.78   Ground Reflected = 136.97   Global =  504.29
+
+* EXPERIMENTAL (WITH CIRCUMSOLAR CORRECTION):
+  Direct Beam, Normal Incidence =  931.46   Diffuse Horizontal = 102.66   Global Horizontal =  979.91
+
+
+
+
+*** ILLUMINANCES (klux) obtained with the Vlambda curve from CIE 1988:
+ E.T. = 130.52  BEAM NORMAL = 104.81  DIFFUSE HORIZONTAL =   14.15  GLOBAL HORIZONTAL =  112.86  GLOBAL TILT =   54.44
+
+*** PHOTOSYNTHETIC IRRADIANCE (W/m2) for 400-700 nm:
+ BEAM NORMAL = 406.13  DIFFUSE HORIZONTAL =  63.59  GLOBAL HORIZONTAL = 446.08  GLOBAL TILT = 214.65
+
+*** PHOTOSYNTHETIC PHOTON FLUX DENSITY (µmol m-2 s-1) for 400-700 nm:
+ BEAM NORMAL = 1871.0  DIFFUSE HORIZONTAL =  274.5  GLOBAL HORIZONTAL = 2036.6  GLOBAL TILT =  986.9
+
+      ILLUMINANCES WITH CIRCUMSOLAR CORRECTION (klux):
+       BEAM NORMAL = 105.06   DIFFUSE =   13.92
+
+*** LUMINOUS EFFICACY (lm/W):
+ E.T. =  97.91   BEAM = 112.744   DIFFUSE = 135.530   GLOBAL = 115.171   GLOBAL TILT = 107.945
+
+      LUMINOUS EFFICACY WITH CIRCUMSOLAR CORRECTION (lm/W):
+       BEAM = 112.787   DIFFUSE = 135.551
+
+
+
+
+*** UV IRRADIANCES (W/m2):
+
+ TOTAL UV-A IRRADIANCE (315-400 nm) =  58.99284
+ TOTAL UV-B IRRADIANCE (280-315 nm) =  1.69924
+
+ TOTAL UV-A IRRADIANCE (320-400 nm) =  57.49038
+ TOTAL UV-B IRRADIANCE (280-320 nm) =  3.17945
+
+
+*** ACTION-WEIGHTED DOSE RATES (W/m2) USING SELECTED ACTION CURVES
+
+ ERYTHEMAL C.I.E. (McKinley & Diffey, 1987) = 0.2237E+00
+ ERYTHEMAL from Green et al. (1974) = 0.1493E+00
+ ERYTHEMAL from Green et al. (1975) = 0.1856E+00
+ ERYTHEMAL from Diffey (1982) modified by Bjorn (1989) = 0.2938E+00
+ DNA DAMAGE from Setlow (1974) = 0.4209E-02
+ PHOTOSYNTHESIS INHIBITION from Caldwell et al. (1986) = 0.1682E+01
+ ACGIH SAFETY SPECTRUM from Wester (1981) = 0.4335E-01
+ BIOLOGICAL ACTION from Caldwell (1971) and Green (1974) = 0.6922E-01
+ POLYCHROMATIC ACTION FOR HIGHER PLANTS from Caldwell et al. (1986) = 0.1780E+00
+ SYSTEMIC IMMUNOSUPPRESSION from deFabo et al. (1990)    = 0.3489E+00
+ DNA TO PROTEIN CROSSLINKS from Peak & Peak (1986) = 0.3436E-01
+ SKIN CARCINOGENESIS from deGruijl & VanderLeun (1994) = 0.5087E+00 (humans); 0.1838E+00 (mice)
+
+
+*** DOSE RATE IN MED/h from an ideal Robertson-Berger instrument = 0.3836E+01
+
+
+*** UV Index =   8.949
+
+
