@@ -12,7 +12,6 @@ class HTPA:
 		wakeup_and_blind = self.generate_command(0x01, 0x01) # wake up the device
 		adc_res = self.generate_command(0x03, 0x0C) # set ADC resolution to 16 bits
 		pull_ups = self.generate_command(0x09, 0x88)
-		sleep = self.generate_command(0x01, 0x00)
 
 		print("Initializing capture settings")
 
