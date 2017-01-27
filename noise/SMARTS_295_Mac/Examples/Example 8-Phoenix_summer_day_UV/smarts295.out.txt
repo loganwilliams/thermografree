@@ -1,0 +1,163 @@
+
+******************   SMARTS, version 2.9.5   *******************
+
+ Simple Model of the Atmospheric Radiative Transfer of Sunshine
+     Chris A. Gueymard, Solar Consulting Services
+                    December 2005
+
+    This model is documented in FSEC Report PF-270-95
+ and in a Solar Energy paper, vol. 71, No.5, 325-346 (2001)
+
+ NOTE: These references describe v. 2.8 or earlier!!!
+ See the User's Manual for details on the considerable 
+ changes that followed...
+
+****************************************************************
+
+   Reference for this run: Example_8-Phoenix_summer_day_UV                                 
+
+----------------------------------------------------------------
+
+* ATMOSPHERE : MLS         AEROSOL TYPE: SRA_CONTL                                                       
+
+* INPUTS:
+     Pressure (mb) =  974.000   Ground Altitude (km) =   0.3390
+     Height above ground (km) =   0.0000
+     Relative Humidity (%) = 72.736   Precipitable Water (cm) =  2.4928
+     Ozone (atm-cm) = 0.3311 or 331.1 Dobson Units
+   AEROSOLS:  Optical Depth at 500 nm = 0.0500      Optical depth at 550 nm = 0.0445
+       Angstrom's Beta = 0.0215       Schuepp's B = 0.0217
+     Meteorological Range (km) =  283.0   Visibility (km) =  216.7
+     Alpha1 = 0.9810  Alpha2 = 1.2200   Mean Angstrom's Alpha = 1.1005
+     Season = SPRING/SUMMER           
+
+* TEMPERATURES:
+     Instantaneous at site's altitude = 292.6 K
+     Daily average (reference) at site's altitude = 292.6 K
+     Stratospheric Ozone and NO2 (effective) = 231.8 K
+
+** WARNING #13 *********
+\ Ground reflectance data for LIGHT_BROWN_LOAMY_SAND  
+\ extend only from 0.4000 to 4.0001 µm,
+\ whereas the wavelength limits for this run are 0.2800 and 4.0000 µm.
+\ Consequently, reflectance is fixed at 0.061 below 0.4000 µm and at 0.330 above 4.0001 µm.
+
+
+
+
+      Spectral ZONAL albedo data: LIGHT_SANDY_SOIL        
+      with a reflection process: NON_LAMBERTIAN          
+
+
+* GEOMETRY (half-angles) OF THE SIMULATED RADIOMETER (deg.):
+   Slope =  0.00      Aperture =  2.90   Limit =  0.00
+
+** WARNING #11*********
+\ The radiometer's Slope and Limit angles are not provided.
+\ Circumsolar calculations will therefore be performed for
+\ an average geometry corresponding to the Aperture angle.
+
+
+
+      Spectral LOCAL albedo data: LIGHT_BROWN_LOAMY_SAND  
+      with a reflection process: NON_LAMBERTIAN          
+
+
+
+ CO2 Mixing Ratio (ppmv):  370.0
+
+
+
+ Total column abundances (atm-cm) for all gases except H2O, and for normal/standard conditions:
+
+    BrO       CH2O        CH4      ClNO3         CO        CO2       HNO2       HNO3        NH3
+
+0.2500E-05 0.3000E-03 0.1220E+01 0.1200E-03 0.8296E-01 0.2855E+03 0.1000E-03 0.3822E-03 0.1558E-03
+
+
+     NO        NO2        NO3         N2        N2O         O2         O3         O4        SO2
+
+0.3138E-03 0.2177E-03 0.5000E-04 0.3448E+06 0.2290E+00 0.1613E+06 0.3311E+00 0.1613E+06 0.9910E-04
+
+
+
+ Corrected total column abundances for all gases (atm-cm)
+ with these realistic conditions: PRISTINE ATMOSPHERE     
+
+    BrO       CH2O        CH4      ClNO3         CO        CO2       HNO2       HNO3        NH3
+
+0.2500E-05 0.0000E+00 0.1220E+01 0.1200E-03 0.7296E-01 0.2855E+03 0.1000E-05 0.1582E-02 0.1558E-03
+
+
+     NO        NO2        NO3         N2        N2O         O2         O3         O4        SO2
+
+0.3138E-03 0.2177E-03 0.1000E-05 0.3448E+06 0.2290E+00 0.1613E+06 0.3304E+00 0.1613E+06 0.9910E-04
+
+
+
+
+*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+** SPECTRUM:
+   Total (0-100 µm) Extraterrestrial Irradiance used here = 1332.83 W/m2
+  (i.e., 0.9750 times the selected solar constant, 1367.00 W/m2, due to the actual Sun-Earth distance.)
+   Source for selected solar spectrum: Gueymard_2002_unpublished                                       
+
+
+
+ Mean daily results for the average day of month  8 at latitude:  33.433 deg.
+ Solar time of sunrise (hr):  5.385   Daylength (hr): 13.230   Time integration step (min):  60.0
+
+* Monthly-average daily-total irradiations (MJ/m2)
+   - Horizontal surface
+   Extraterrestrial:   37.595   Direct:   24.875   Diffuse:    3.174   Global:   28.049
+
+   - Tilted surface
+   Global:   28.601   Direct normal:   36.489
+
+   - Clearness index (Kt, dimensionless): 0.7461
+
+
+* Monthly-average daily-total UV dose (kJ/m2):   82.924
+
+
+* Monthly-average illuminances (klux)
+   - Horizontal surface
+   Direct:   86.127   Diffuse:    8.926   Global:   68.049
+
+   - Tilted surface
+   Global:   67.094   Extraterrestrial normal:  130.498
+
+
+*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+** SPECTRUM:
+   Total (0-100 µm) Extraterrestrial Irradiance used here = 1332.83 W/m2
+  (i.e., 0.9750 times the selected solar constant, 1367.00 W/m2, due to the actual Sun-Earth distance.)
+   Source for selected solar spectrum: Gueymard_2002_unpublished                                       
+
+
+
+ Mean daily results for the average day of month  8 at latitude:  33.433 deg.
+ Solar time of sunrise (hr):  5.385   Daylength (hr): 13.230   Time integration step (min):  30.0
+
+* Monthly-average daily-total irradiations (MJ/m2)
+   - Horizontal surface
+   Extraterrestrial:   37.595   Direct:   24.924   Diffuse:    3.249   Global:   28.172
+
+   - Tilted surface
+   Global:   28.645   Direct normal:   37.486
+
+   - Clearness index (Kt, dimensionless): 0.7494
+
+
+* Monthly-average daily-total UV dose (kJ/m2):   83.006
+
+
+* Monthly-average illuminances (klux)
+   - Horizontal surface
+   Direct:   87.298   Diffuse:    9.154   Global:   68.305
+
+   - Tilted surface
+   Global:   67.257   Extraterrestrial normal:  130.498
+

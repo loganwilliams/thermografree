@@ -1,0 +1,32 @@
+'Example_4_(UV_Spectrum_Summer)'		!Card 1 Comment
+2				!Card 2 ISPR
+34. 2.1	0.			!Card 2a Latitude, Altitude, Height
+0				!Card 3 IATMOS
+20.0 30.0 'SUMMER' 15.0		!Card 3a USER atmosphere
+2				!Card 4 IH2O
+0				!Card 5 IO3
+0 0.3				!Card 6 IALT, AbO3
+1			!Card 6 IGAS
+370.0			!Card 7 qCO2
+1			!Card 7a ISPCTR
+'S&F_RURAL'		!Card 8 Aeros
+0			!Card 9 ITURB
+0.05			!Card 9a TAU5
+6			!Card 10 IALBDX
+1			!Card 10b ITILT
+6 34. 180.		!Card 10c Tilt variables
+280 410 1.0 1367.0	!Card 11 Input wavelengths; solar constant modifier; solar constant
+2			!Card 12 IPRT
+280 400 .5		!Card12a Print limits
+6			!Card12b # Variables to Print
+1 2 9  4 8 30		!Card12c Variable codes
+1			!Card 13 ICIRC
+0 3 0			!Card 13a Receiver geometry
+1			!Card 14 ISCAN
+1 290 400 1 1.2		!Card 14a Smoothing parameters
+0			!Card 15 ILLUM
+1			!Card 16 IUV
+2			!Card 17 IMASS
+1.2			!Card 17a Air mass
+
+

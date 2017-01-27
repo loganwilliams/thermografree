@@ -1,0 +1,230 @@
+SMARTS--Simple Model of the Atmospheric Radiative Transfer of Sunshine
+
+                        Developed by C. Gueymard
+
+                                  *****
+
+   THE CHANGES THAT OCCURRED IN THE SUCCESSIVE VERSIONS OF SMARTS2 ARE
+   DOCUMENTED BELOW.
+ 
+*	Version 2.0, Feb. 1994, corresponds to the ASES SOLAR'94 Conf. paper: 
+	"Updated transmittance functions for use
+	in fast spectral direct beam irradiance models"
+
+*	Version 2.5, June 1994. Revisions include:
+	- Modified extraterrestrial spectrum with new data from UARS
+		(pers. comm. with Michael van Hoosier, NRL, May 1994)
+	- Revised water vapor and mixed gases absorption coefficients
+	- Revised water vapor and mixed gases transmittance functions
+	- Revised diffuse irradiance on the horizontal
+	- Revised transposition for tilted planes (returning to isotropic
+		for wavelengths < 0.35 µm)
+	- Added new default values when using reference atmospheres at
+		elevated sites (up to 4 km altitude) with interpolation
+		using a 4 pt. Lagrange scheme
+	- Improved input data handling
+	- Use a fit of alpha = f(humidity) for each default aerosol type
+	- Use a fit of omegl=f(humidity, wavelength) for each aerosol type
+
+*	Version 2.5.1, July 1994 with the following revisions:
+	- Fixed error resulting from input card 4a for IH2O=2
+	- Modified the calculation of relative humidity so that RH=0.0 if 
+	the user inputs W=0.
+	- Modified the relationship between turbidity and visibility (input
+	card 9a with ITURB=3 or 4) by replacing the King & Buckius equation
+	by a newly-developed fit based on Shettle & Fenn/MODTRAN2 results.
+	- Added the calculation of the extra-terrestrial illuminance and
+	luminous efficacy.
+
+*	VERSION 2.5.2, Aug. 1994
+	- Fixed error when §=0. is input
+	- Fixed initialization of E.T. illuminance
+	- Corrected formula for luminous efficacy of the E.T. spectrum
+
+*	VERSION 2.5.3, Aug. 1994
+	- Fixed inconsistencies related to the choice of using
+	reference atmospheres
+	- Modified the input sequence accordingly; TAIR, RH and SEASON
+	are now required whenever a ref. atm. is not selected. See new
+	comments on CARDS 2, 3 and 4.
+	- It is now possible to have the pressure determined or interpolated
+	from the ref. atm. data file.
+	- Used a simplified fit for THICK.
+	- Added a correction for the temperature gradient to estimate
+	TGRND (sea-level temperature) from TAIR when a user defined atm.
+	is selected and Z>0.
+
+*	VERSION 2.6, Oct. 1994
+	- Modified the calculation of the sun's position, now using the 
+	Astronomical Almanac "low precision formula", with which declination
+	is accurate to better than 0.01 deg. Refraction is considered
+	prior to calculation of optical masses and
+	now depends on pressure and temperature. 
+	Note that Z (APPARENT zenith angle) must be ²91 deg. 
+	Z>90 deg. means that the sun is below the apparent horizon; it may still
+	be visible at sunrise/sunset in mountain areas or from an airplane.
+	However, the accuracy for Z>85 deg. is questionable in most parts of
+	the spectrum due to lack of reference data. (The accuracy is
+	good, at least in the UV-B, for Z<89.5 deg.) 
+	Time must now be entered as LST (Local Standard Time), therefore, no
+	adjustment is needed for Daylight Savings Time.
+	Day must now be entered as the day-of-year number (e.g., 32 for Feb. 1)
+	Note that input card 17a has been modified accordingly.
+	Changed the sign convention for azimuths and longitudes (to conform to
+	the astronomical convention).
+	- Corrected the default O3 values for the 4 supplementary atmospheres.
+	- Added default values for the NO2 total column, corresponding to
+	stratospheric loading only; a new input card is added, asking
+	if the default OR the user value of NO2 shall be used.
+	- Added 3 standard aerosol types from the SRA/IAMAP atmospheric model;
+	the input aerosol types names have been changed for clarity.
+	- Corrected the function beta=f(Visi) to obtain beta=0 if Visi=340 km
+	(its maximum value for a pure Rayleigh atmosphere).
+	- Corrected the fits to obtain OMEGL (the aerosol single scattering
+	albedo) more accurately for the SRA and Shettle & Fenn aerosol models.
+	- Introduced a new function to calculate FA (the aerosol forward
+	scatterance) as a function of zenith angle and asymmetry parameter.
+	- Introduced fits to obtain the asymmetry parameter, g, as a function
+	of wavelength and humidity, for the reference aerosol types; 
+	if the aerosol is user-defined, g becomes a necessary input, but
+	is considered constant throughout the spectrum.
+	- Modified the circumsolar correction factor to have a variable
+	opening angle of the simulated radiometer; a new input card is added
+	to ask if the circumsolar correction shall be calculated; if yes, the
+	radiometer total opening angle input is asked for.
+	- Modified the input of air temperature, so that the average O3 temp.
+	is now calculated from a daily average instead of the previously used 
+	instantaneous value.
+	- Modified the sky reflectance function in the UV so that it is now
+	close to rigorous predictions.
+	- Modified the diffuse radiation parameterization to match reference
+	caculations and measurements in the UV, down to about 280 nm.
+	- Added DOUBLE PRECISION for some variables that decrease to near
+	zero in the UV.
+	- Added optional calculations in the UV (see new input card 16),
+	with UV-A and UV-B total irradiances, as well as band irradiances 
+	weighted by some action spectra for erythema, ADN damage, etc.
+	- Corrected a small bug in the filter/scanning function.
+	
+*	VERSION 2.6.1, Nov. 1994
+	- Moved the comments on the input cards that were in the main program
+	into the README.TOO file.
+	- Fixed a bug in the ozone optical thickness calculation (that
+	could become <0 at very low temperatures).
+	- Improved the calculation of the aerosol forward scatterance and
+	ozone pseudo-transmittance for a better diffuse irradiance
+	determination (it was too low in the visible with v. 2.6).
+	- Replaced the (probably incorrect) fit by Bjorn of the Parrish et al.
+	action spectrum by fits for the recently published SCUP (Skin Cancer 
+	Utrecht-Philadelphia) action spectra of de Gruijl & Van der Leun (1994).
+	- Improved the formatting of some outputs.
+	- Cleaned the SPCTRM.DAT file for extraneous data (tip courtesy of 
+	Dr. Kambezidis).
+	- Added more Double Precision variables to avoid possible computational
+	problems with some Fortran compilers (tip courtesy Dr. Molineaux).
+	
+*	VERSION 2.6.2, Dec. 1994, corresponds to FSEC report PF-270-94
+	- Added XCHECK as a Double Precision variable.
+	- Removed all X-marks in the first column as they may not be
+	interpretable by some compilers.
+	- Corrected some misprinted ozone absorption coefficients
+	for the UV-A band in SPCTRM.DAT.
+	- Corrected some misprinted mixed gas absorption coefficients
+	above 2000 nm in SPCTRM.DAT.
+	
+*	VERSION 2.6.3, Jan. 1995
+	- Fixed minor inconsistencies in the way ground and sea-level
+	temperatures were echoed.
+	- Fixed minor inconsistencies in the way wavelengths and wavelength
+	intervals were used during the numerical integration process leading to
+	broadband results. Full spectrum (280-4000 nm) integrations remain
+	unchanged, but partial integrations may slightly differ.
+	- Changed Real to Integer formats for the wavelength inputs and in most
+	calculations.
+	- Introduced the option ILLUM=2 to specifically calculate the luminous
+	efficacy (ILLUM=1 does not offer this time consuming result any more).
+	- Added an executable for PC users, as compiled by MS Fortran 5.1.
+	- Corrected a missing digit in the last coefficient of the VLAMBDA.DAT
+	file.
+	
+*	VERSION 2.7, Oct. 1995
+	- Replaced the interim broadband circumsolar correction by a physical
+	model. This calculation is optional and use the aerosol model selected by
+	the user. A maximum 10¡ half cone is considered, with single scattering
+	from aerosols and multiple scattering by molecules. The actual penumbra
+	function of the simulated radiometer can be approximated from its geometry.
+	- Replaced the fixed broadband albedos (zonal and local) by user-selected
+	albedo models. Besides the fixed broadband Lambertian albedo option, a 
+	user-defined spectral reflectance dataset can be read (from file 
+	ALBEDO.DAT) and be specified either Lambertian or non-Lambertian. The non-
+	Lambertian option will add calculations for increased reflectance at
+	larger zenith angles. The calculation of spectral, non-Lambertian 
+	reflectance of water (or calm oceans) is also optional. A library of 16
+	user-selectable spectral reflectance datasets is offered for different
+	natural and artificial surfaces. They are considered non-Lambertian.
+	The zonal and local reflectances thus defined can be the same or not.
+	- The calculation of irradiances on a tilted plane is now optional. A
+	tracking surface (always normal to the sun rays) can be defined.
+	- Modified the diffuse irradiance transposition for tilted surfaces. The
+	transition between the isotropic and anisotropic calculations now depends
+	on the ratio between the aerosol and Rayleigh optical thicknesses.
+	- The spectral results can be output to either one or both of the regular
+	output file (SMARTS2.OUT) and the spreadsheet file (SMARTS2.EXT). The
+	latter's content is optional, for a maximum of 24 variables to be selected
+	from a maximum of 32 possible. Each column has a header. This file can be
+	read directly by a spreadsheet or graphics program.
+	- Modified the optical air mass iterative algorithm. Its acceptable
+	maximum value is now 57.3 (for a zenith angle of 91.0¡).
+	- Fixed minor inconsistencies in the solar position algorithm.
+	- Fixed minor errors in the extraterrestrial spectrum.
+	- Fixed a bug in the scanning function.
+	- Used different compilers: Language Systems Fortran 3.3 for the Mac
+	version, and Lahey Fortran 5.01 for the PC/DOS version. The Mac version
+	has three different executables optimized for different machines.
+	- Fixed a bug affecting pressure corrections with ISPR=0. (Fixed 
+	18 Mar. 96).
+	- Fixed a bug affecting the PC version only, which could not produce a
+	correct backscattering calculation over a Lambertian surface. (Fixed
+	1 Aug. 96).
+	
+*	VERSION 2.8, Nov. 1996
+	- Fixed a bug in the temperature correction of ozone absorption. It
+	affected wavelengths in the 561-1091 and 3120-3750 nm spectral ranges.
+	(Thanks to Benoit Molineaux.)
+	- Modified the extraterrestrial spectrum in the 412-4000 nm range to
+	reflect the new spectrum in MODTRAN3. It is essentially a degraded version
+	of the latter's relatively high-resolution spectrum (1 cm-1 intervals),
+	with some corrections. The essential difference is around the 940-nm water
+	vapor band, where the irradiance is now 2-4% larger. The 280-4000 nm
+	irradiance is now 1349.7 W/m2, compared to 1349.5 previously, and
+	1354.1 W/m2 for MODTRAN3.
+	- Introduced another option in illuminance calculations. The ILLUM
+	parameter may now be set to -2, -1, 0, 1 , or 2. 
+	ILLUM=0 is for no illuminance calculations, as before.
+	ILLUM=-1 or 1 is for supplemental illuminance calculations. 
+	ILLUM=-2 or 2 is for both supplemental illuminance and luminous efficacy
+	calculations. 
+	ILLUM=-1 and -2 have been introduced so that the old CIE (1924) Vlambda 
+	curve (for the standard eye response) in file VLAMBDA.DAT could still be
+	used. (Note, however, that this file has been slightly changed to allow
+	extended calculations to 780 nm.)
+	ILLUM=1 and 2 now use the newer CIE (1988) Vlambda curve, with added
+	accurracy, significant digits, and values up to 780 nm. The new dataset is
+	in file VMLAMDA.DAT. (Thanks to Dominique Dumortier.)
+	- Added a user-friendly interface to change the input and output filenames
+	when the execution begins. (Thanks again to Dominique Dumortier.)
+	- Changed the compiler for the Mac version. A single, fat binary
+	executable for Mac is now offered, which will run native on both 68K and
+	PPC machines. It is also accelerated for the PowerPC 604 chip.
+	
+	
+*	VERSION 2.9.x, Feb. 2002 and later
+	All new features are documented in the file 'SMARTSxxx_Users_Manual.pdf'.
+	
+	
+	
+	
+	PLEASE REPORT ANY PROBLEM TO THE AUTHOR!
+	
+	Dr. Chris Gueymard
+	Solar Consulting Services 	P.O. Box 392 	Colebrook, NH 03576 	USA 	Tel. (603) 237-8550	Fax  (603) 237-5314 	Email: Chris@solarconsultingservices.com

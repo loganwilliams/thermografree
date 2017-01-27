@@ -1,0 +1,132 @@
+
+******************   SMARTS, version 2.9.5   *******************
+
+ Simple Model of the Atmospheric Radiative Transfer of Sunshine
+     Chris A. Gueymard, Solar Consulting Services
+                    December 2005
+
+    This model is documented in FSEC Report PF-270-95
+ and in a Solar Energy paper, vol. 71, No.5, 325-346 (2001)
+
+ NOTE: These references describe v. 2.8 or earlier!!!
+ See the User's Manual for details on the considerable 
+ changes that followed...
+
+****************************************************************
+
+   Reference for this run: Example_1_(old_ASTM_Standards)                                  
+
+----------------------------------------------------------------
+
+* ATMOSPHERE : USSA        AEROSOL TYPE: S&F_RURAL                                                       
+
+* INPUTS:
+     Pressure (mb) = 1013.250   Ground Altitude (km) =   0.0000
+     Height above ground (km) =   0.0000
+     Relative Humidity (%) = 46.040   Precipitable Water (cm) =  1.4200
+     Ozone (atm-cm) = 0.3400 or 340.0 Dobson Units
+   AEROSOLS:  Optical Depth at 500 nm = 0.2700      Optical depth at 550 nm = 0.2457
+       Angstrom's Beta = 0.1069       Schuepp's B = 0.1173
+     Meteorological Range (km) =   31.2   Visibility (km) =   23.9
+     Alpha1 = 0.9471  Alpha2 = 1.3670   Mean Angstrom's Alpha = 1.1571
+     Season = SPRING/SUMMER           
+
+* TEMPERATURES:
+     Instantaneous at site's altitude = 288.1 K
+     Daily average (reference) at site's altitude = 288.1 K
+     Stratospheric Ozone and NO2 (effective) = 225.3 K
+
+
+The following spectral variables will be output to file: smarts295.ext.txt       
+
+ * Extraterrestrial_spectrm
+ * Global_tilted_irradiance
+ * Beam_normal_+circumsolar
+ * Difuse_horiz-circumsolar
+
+
+   ZONAL  ALBEDO (constant and Lambertian) = 0.200
+
+
+* GEOMETRY (half-angles) OF THE SIMULATED RADIOMETER (deg.):
+   Slope =  0.00      Aperture =  2.90   Limit =  0.00
+
+** WARNING #11*********
+\ The radiometer's Slope and Limit angles are not provided.
+\ Circumsolar calculations will therefore be performed for
+\ an average geometry corresponding to the Aperture angle.
+
+
+
+   LOCAL  ALBEDO (constant and Lambertian) = 0.200
+
+
+
+====================================================================================================
+====================================================================================================
+
+* SOLAR POSITION (deg.):
+    Zenith Angle (apparent) = 48.236  Azimuth (from North) =  180.00
+
+      RELATIVE OPTICAL MASSES:
+  - Rayleigh =  1.500
+  - Water Vapor =  1.501
+  - Ozone =  1.498
+  - NO2 =  1.500
+  - Aerosols =  1.501
+
+
+ CO2 Mixing Ratio (ppmv):  370.0
+
+
+
+ Total column abundances (atm-cm) for all gases except H2O, and for normal/standard conditions:
+
+    BrO       CH2O        CH4      ClNO3         CO        CO2       HNO2       HNO3        NH3
+
+0.2500E-05 0.3000E-03 0.1326E+01 0.1200E-03 0.8859E-01 0.2970E+03 0.1000E-03 0.3637E-03 0.1751E-03
+
+
+     NO        NO2        NO3         N2        N2O         O2         O3         O4        SO2
+
+0.3145E-03 0.2044E-03 0.5000E-04 0.3827E+06 0.2473E+00 0.1678E+06 0.3400E+00 0.1678E+06 0.1100E-03
+
+
+
+
+* ANGLES (deg.) FOR TILTED SURFACE CALCULATIONS: 
+   Surface Tilt =  37.000   Surface Azimuth (from North) = 180.000
+   Incidence Angle =  11.236
+
+  Diffuse irradiance ratios (tilted plane/horizontal):
+      0.8993  (isotropic approximate conversion--for reference)
+      1.2420  (anisotropic conversion model--used here)
+
+
+
+*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+** SPECTRUM:
+   Total (0-100 µm) Extraterrestrial Irradiance used here = 1367.00 W/m2
+  (i.e., 1.0000 times the selected solar constant, 1367.00 W/m2, due to the actual Sun-Earth distance.)
+   Source for selected solar spectrum: Gueymard_2002_unpublished                                       
+
+
+Wavelength Range =  300.0 to 4000.0 nm;  Number of Wavelengths =  1962
+
+*** BROADBAND IRRADIANCES (W/m2):
+
+* DIRECT BEAM AT NORMAL INCIDENCE:
+  Extraterrestrial = 1339.74   Terrestrial =  754.43   Atmospheric Transmittance = 0.5631
+
+* FOR THE HORIZONTAL PLANE:
+  Direct Beam =  502.50   Diffuse = 169.01   Global =  671.51   Clearness index, KT = 0.4912
+  Diffuse irradiance origination details:
+   Sky diffuse = 154.09   Back-scattered diffuse =  14.92
+
+* FOR THE TILTED PLANE: 
+  Direct Beam =  739.97   Sky Diffuse = 212.59   Ground Reflected =  13.52   Global =  952.56
+
+* EXPERIMENTAL (WITH CIRCUMSOLAR CORRECTION):
+  Direct Beam, Normal Incidence =  759.91   Diffuse Horizontal = 165.36   Global Horizontal =  671.51
+

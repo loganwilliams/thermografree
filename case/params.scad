@@ -69,9 +69,9 @@ module standoff(radius, height, inner_radius, depth=10) {
     
 
 left_margin = 10;
-right_margin = 40;
+right_margin = 30;
 top_margin = 25;
-bottom_margin = 12;
+bottom_margin = 34;
 screen_width = 118.1;
 screen_height = 70.9;
 height = 2;
@@ -82,10 +82,10 @@ total_height = top_margin+bottom_margin+screen_height;
 ribbon_cable_width=13;
 
 wall_thickness = 2;
-depth = 45;
+depth = 50;
 standoff_od = 4;
 
-camera_offset_x = 100;
+camera_offset_x = 105;
 camera_offset_y = 12;
 camera_standoff_height = 4.7;
 
