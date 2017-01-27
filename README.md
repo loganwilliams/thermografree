@@ -1,4 +1,4 @@
-# gas-camera
+# open-flir
 
 This repository contains code and hardware design files for an open source forward looking infrared (FLIR) thermal camera.
 
