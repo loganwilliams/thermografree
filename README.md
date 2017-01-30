@@ -19,6 +19,7 @@ The application consists of a Python class for interfacing with the module (```h
 ## Known issues
 
 * The sensor calibration programmed into the EEPROM at the factory does not seem to match the noise profile of the images captured from the device.
+* The HDMI cable is super janky.
 
 ## Physical assembly
 
