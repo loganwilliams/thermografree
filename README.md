@@ -12,6 +12,14 @@ Models for 3D printing are in ```case/```.
 
 Research on noise characteristics of the camera and possible uses/limitations for gas sensing are archived in ```noise/```.
 
+## Software
+
+The application consists of a Python class for interfacing with the module (```htpa.py```) and a GUI. The GUI allows for control of the sensor clock frequency, current, and bias. The default settings are the settings used for the module factory calibration, and seem to produce the best results.
+
+## Known issues
+
+* The sensor calibration programmed into the EEPROM at the factory does not seem to match the noise profile of the images captured from the device.
+
 ## Physical assembly
 
 ![All parts](/docs/images/DSC01492.JPG?raw=true)
