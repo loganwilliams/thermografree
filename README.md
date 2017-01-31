@@ -12,9 +12,25 @@ Models for 3D printing are in ```case/```.
 
 Research on noise characteristics of the camera and possible uses/limitations for gas sensing are archived in ```noise/```.
 
+## Hardware
+
+The hardware involved is extremely straightforward: a Raspberry Pi communicates with the Heimann sensor over I2C and displays the images to the user. The sensor should be connected to the Raspberry Pi GPIO pins 3 and 5, and can be powered from the 3.3V and ground pins of the GPIO port. This does not interfere with the use of SPI for touch screen communication. The system is powered from a USB power bank.
+
+### Bill of materials
+
+* Raspberry Pi Zero (or Raspberry Pi)
+* LCD screen ([e.g.](https://www.amazon.com/SunFounder-Monitor-Display-800X480-Raspberry/dp/B01HXSFIH6))
+** HDMI cable
+* Raspberry Pi camera ([e.g.](https://www.amazon.com/dp/B01LY05LOE/ref=sr_ph_1?ie=UTF8&qid=1485905985&sr=sr-1&keywords=raspberry+pi+camera+zero))
+* Heimann HTPA32x32dL3.6/0.9 (purchased through [Boston Electronics](http://www.boselec.com/))
+* USB power bank ([e.g.](https://www.amazon.com/Anker-bar-Sized-Portable-High-Speed-Technology/dp/B00P7N0320/ref=sr_1_5?ie=UTF8&qid=1485906277&sr=8-5&keywords=anker+power+bank))
+** USB cable with switch
+* Case (3D printed files included in repository)
+* Bracket for attaching Heimann sensor to case
+
 ## Software
 
-The application consists of a Python class for interfacing with the module (```htpa.py```) and a GUI. The GUI allows for control of the sensor clock frequency, current, and bias. The default settings are the settings used for the module factory calibration, and seem to produce the best results.
+The application consists of a Python class for interfacing with the module (```htpa.py```) and a GUI (```dualcam.py```). The GUI allows for control of the sensor clock frequency, current, and bias. The default settings are the settings used for the module factory calibration, and seem to produce the best results.
 
 ## Known issues
 
