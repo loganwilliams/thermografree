@@ -19,12 +19,10 @@ The hardware involved is extremely straightforward: a Raspberry Pi communicates 
 ### Bill of materials
 
 * Raspberry Pi Zero (or Raspberry Pi)
-* LCD screen ([e.g.](https://www.amazon.com/SunFounder-Monitor-Display-800X480-Raspberry/dp/B01HXSFIH6))
-** HDMI cable
+* LCD screen ([e.g.](https://www.amazon.com/SunFounder-Monitor-Display-800X480-Raspberry/dp/B01HXSFIH6)) and HDMI cable
 * Raspberry Pi camera ([e.g.](https://www.amazon.com/dp/B01LY05LOE/ref=sr_ph_1?ie=UTF8&qid=1485905985&sr=sr-1&keywords=raspberry+pi+camera+zero))
 * Heimann HTPA32x32dL3.6/0.9 (purchased through [Boston Electronics](http://www.boselec.com/))
-* USB power bank ([e.g.](https://www.amazon.com/Anker-bar-Sized-Portable-High-Speed-Technology/dp/B00P7N0320/ref=sr_1_5?ie=UTF8&qid=1485906277&sr=8-5&keywords=anker+power+bank))
-** USB cable with switch
+* USB power bank ([e.g.](https://www.amazon.com/Anker-bar-Sized-Portable-High-Speed-Technology/dp/B00P7N0320/ref=sr_1_5?ie=UTF8&qid=1485906277&sr=8-5&keywords=anker+power+bank)) and USB cable with switch
 * Case (3D printed files included in repository)
 * Bracket for attaching Heimann sensor to case
 
