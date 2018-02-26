@@ -73,9 +73,13 @@ class HTPA:
 		self.send_command(cm_bottom)
 
 	def get_eeprom(self, eeprom_address=0x50):
-		query = [I2C.Message([0x00, 0x00]), I2C.Message([0x00]*8000, read=True)]
-		self.i2c.transfer(eeprom_address, query)
-		return np.array(query[1].data)
+		# My Raspberry pi keeps timing-out here, so we split it into
+		# two different transfers:...
+		q1 = [I2C.Message([0x00, 0x00]), I2C.Message([0x00]*4000, read=True)]
+		q2 = [I2C.Message([0x0f, 0xa0]), I2C.Message([0x00]*4000, read=True)]
+		self.i2c.transfer(eeprom_address, q1)
+		self.i2c.transfer(eeprom_address, q2)
+		return np.array(q1[1].data + q2[1].data)
 
 	def extract_eeprom_parameters(self, eeprom):
 		self.VddComp = eeprom[0x0540:0x0740:2] + (eeprom[0x0541:0x0740:2] << 8)
@@ -156,7 +160,7 @@ class HTPA:
 			self.send_command(self.generate_expose_block_command(block, blind=blind), wait=False)
 
 			query = [I2C.Message([0x02]), I2C.Message([0x00], read=True)]
-			expected = 1 + (block << 2)
+			expected = 1 + (block << 4)
 
 			done = False
 
