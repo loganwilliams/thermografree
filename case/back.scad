@@ -1,6 +1,6 @@
 include <params.scad>
 
-height = 1;
+height = 2;
 
 difference() {
         roundedRect([left_margin+screen_width+right_margin, top_margin+screen_height+bottom_margin, height], 5);

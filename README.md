@@ -4,13 +4,13 @@ Thermografree is the first open source, medium resolution, and broadband forward
 
 ![The Thermografree device](/docs/images/demo.jpg?raw=true)
 
-This thermal camera is based on a Heimann Sensor thermopile array module, detailed in ```docs/HeimannArrays9-9-16.pdf``` and the sample datasheet (```docs/HTPA 32x32d L2.1_0.8 (Hi)S Rev2 Datasheet.pdf```.) Previous attempts at open source thermal cameras have been based on the Melexis MLX90621, an earlier and lower resolution thermopile array. For comparison, the datasheet for this part is also available at ```docs/MLX90621-Datasheet-Melexis.pdf```.
+This thermal camera is based on a Heimann Sensor thermopile array module, detailed in `docs/HeimannArrays9-9-16.pdf` and the sample datasheet (`docs/HTPA 32x32d L2.1_0.8 (Hi)S Rev2 Datasheet.pdf`). Previous attempts at open source thermal cameras have been based on the Melexis MLX90621, an earlier and lower resolution thermopile array. For comparison, the datasheet for this part is also available at `docs/MLX90621-Datasheet-Melexis.pdf`.
 
-Code is in ```source/GUI/```, and should work out of the box on a Raspberry Pi with I2C enabled. It is dependent on OpenCV, and a handful of other Python packages.
+Code is in ```src/```, and should work out of the box on a Raspberry Pi with I2C enabled. If you are using an older (2015-2017) verison of the device, you will have to change the HTPA initialization to add an explicit `revision="2017"` in `dualcam.py`. Installation instructions are below.
 
-Models for 3D printing are in ```case/```.
+OpenSCAD models for 3D printing are in ```case/```. The case and hardware (including the screen, cabling, and battery) are very minimum viable prototype, and should not in anyway be taken as "best practices" hardware advice.
 
-Research on noise characteristics of the camera and possible uses/limitations for gas sensing are archived in ```noise/```.
+Research on noise characteristics of the camera and possible uses/limitations for gas sensing are archived in ```docs/noise-analysis/```.
 
 ## Hardware
 
@@ -30,10 +30,37 @@ The hardware involved is extremely straightforward: a Raspberry Pi communicates 
 
 The application consists of a Python class for interfacing with the module (```htpa.py```) and a GUI (```dualcam.py```). The GUI allows for control of the sensor clock frequency, current, and bias. The default settings are the settings used for the module factory calibration, and seem to produce the best results.
 
+### Installation
+
+#### Installing pre-requisites
+
+The Python software has several pre-requisites. To install them on your Raspberry Pi, run the following commands while you have an internet connection.
+
+```
+sudo apt-get install python-pip ipython
+sudo apt-get install python-numpy python-scipy
+sudo apt-get install libopencv-dev python-opencv
+sudo pip install periphery picamera imutils pillow
+```
+
+#### Enable I2C
+
+Follow [Adafruit's tutorial](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c).
+
+#### Enabling I2C repeated starts
+
+The I2C hardware on the Raspberry Pi needs to be configured to support "repeated starts." To do this, add the following line to ```/etc/modprobe.d/i2c.conf```:
+
+```
+options i2c-bcm2708 combined=1
+```
+
+If you are not using a Raspberry Pi, enabling repeated starts will likely require a different configuration. For more information, see [the blog post I wrote on this topic](http://exclav.es/2016/10/26/talkin-ir/).
+
 ## Known issues
 
 * The sensor calibration programmed into the EEPROM at the factory does not seem to match the noise profile of the images captured from the device.
-* The HDMI cable is super janky.
+* The HDMI cable connection to a Raspberry Pi Zero is a hack. If you use the screen documented here, we suggest a Raspberry Pi 3.
 
 ## Physical assembly
 
