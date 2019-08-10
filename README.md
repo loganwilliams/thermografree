@@ -40,7 +40,7 @@ The Python software has several pre-requisites. To install them on your Raspberr
 sudo apt-get install python-pip ipython
 sudo apt-get install python-numpy python-scipy
 sudo apt-get install libopencv-dev python-opencv
-sudo pip install periphery picamera imutils pillow
+sudo pip install python-periphery picamera imutils pillow
 ```
 
 #### Enable I2C
